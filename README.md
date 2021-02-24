@@ -264,7 +264,8 @@ For example, with `PM25`, we want to create a `pm25detrend` variable that subtra
 
 ### transmute()
 There is also the related `transmute()` function, which does the same thingas `mutate()` but then drops all non-transformed variables.
-    
+
+Here we detrend pm10 and ozone (03)
     
     
     
