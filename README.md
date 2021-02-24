@@ -41,7 +41,7 @@ Then we must close the connection.
 ## Manipulating the Chicago Dataset  
     
 
-To view the basic characteristics of the dataset we can use `dim()` and `str()` functions.
+A. To view the basic characteristics of the dataset we can use `dim()` and `str()` functions.
 
     dim(chicago)
     [1] 6940    8
@@ -61,8 +61,7 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
     
     
 
-Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We
-could for example use numerical indices. But we can also use the names directly.
+B. Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We could for example use numerical indices. But we can also use the names directly.
 
     name(chicago)[1:3]
     [1] "city" "tmpd" "dptp"
@@ -78,7 +77,9 @@ could for example use numerical indices. But we can also use the names directly.
     5 chic 32.0 28.875
     6 chic 40.0 35.125
    
-Note: We used `head()` function to select only the first 6 rows in the dataframe.
+Note: We used `head()` function to select only the first 6 rows in the dataframe. It also applies with the `tail()` function.
+
+C. You can also omit variables using the `select()` function by using the negative sign.
 
 
 
