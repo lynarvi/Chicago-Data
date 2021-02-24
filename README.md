@@ -219,6 +219,50 @@ Columns can be arranged in descending order too by using the special `desc()` op
  The syntax inside the `rename()` function is to have the new name on the left-hand
 side of the = sign and the old name on the right-hand side.
 
+ 
+ ### mutate()
+The `mutate()` function use to compute transformations of variables in a data
+frame. Every so often, if you want to create new variables that are derived from
+existing variables and `mutate()` provides a clear interface for doing that.
+
+For example, with `PM25`, we want to create a `pm25detrend` variable that subtracts the mean from the `PM25` variable.
+
+    ChicagoMutated = mutate(ChicagoNew, pm25detrend = PM25 - mean(PM25, na.rm = TRUE))
+    head(ChicagoMutated)
+    
+      city tmpd dew point temperature       date PM25 pm10tmean2 o3tmean2 no2tmean2
+    1 chic 31.5                31.500 1987-01-01   NA   34.00000 4.250000  19.98810
+    2 chic 33.0                29.875 1987-01-02   NA         NA 3.304348  23.19099
+    3 chic 33.0                27.375 1987-01-03   NA   34.16667 3.333333  23.81548
+    4 chic 29.0                28.625 1987-01-04   NA   47.00000 4.375000  30.43452
+    5 chic 32.0                28.875 1987-01-05   NA         NA 4.750000  30.33333
+    6 chic 40.0                35.125 1987-01-06   NA   48.00000 5.833333  25.77233
+         pm25detrend
+    1          NA
+    2          NA
+    3          NA
+    4          NA
+    5          NA
+    6          NA
+
+    tail(ChicagoMutated)
+    
+         city tmpd dew point temperature       date     PM25 pm10tmean2  o3tmean2
+    6935 chic   35                  29.6 2005-12-26  8.40000        8.5 14.041667
+    6936 chic   40                  33.6 2005-12-27 23.56000       27.0  4.468750
+    6937 chic   37                  34.5 2005-12-28 17.75000       27.5  3.260417
+    6938 chic   35                  29.4 2005-12-29  7.45000       23.5  6.794837
+    6939 chic   36                  31.0 2005-12-30 15.05714       19.2  3.034420
+    6940 chic   35                  30.1 2005-12-31 15.00000       23.5  2.531250
+         no2tmean2 pm25detrend
+    6935  16.81944   -7.830958
+    6936  23.50000    7.329042
+    6937  19.28563    1.519042
+    6938  19.97222   -8.780958
+    6939  22.80556   -1.173815
+    6940  13.25000   -1.230958
+
+    
     
     
     
