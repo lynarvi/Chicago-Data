@@ -79,7 +79,32 @@ B. Suppose we wanted to take the first 3 columns only. There are a few ways to d
    
 Note: We used `head()` function to select only the first 6 rows in the dataframe. It also applies with the `tail()` function.
 
-C. You can also omit variables using the `select()` function by using the negative sign.
+C. You can also omit variables using the `select()` function by using the negative sign. In this case we want to omit the variables **city** upto **dptp**.
+
+    subset_omit = select(chicago, -(city:dptp))
+    head(subset_omit)
+                date pm25tmean2 pm10tmean2 o3tmean2 no2tmean2
+        1 1987-01-01         NA   34.00000 4.250000  19.98810
+        2 1987-01-02         NA         NA 3.304348  23.19099
+        3 1987-01-03         NA   34.16667 3.333333  23.81548
+        4 1987-01-04         NA   47.00000 4.375000  30.43452
+        5 1987-01-05         NA         NA 4.750000  30.33333
+        6 1987-01-06         NA   48.00000 5.833333  25.77233
+
+D. The `select()` function also allows special syntax that allows you to specify variable names based on patterns. 
+
+- for example you want to keep every variable that **ends with a "2"**. we could do;
+
+    subset = select(chicago, ends_with("2"))
+    head(subset)
+     'data.frame':   6940 obs. of  4 variables:
+ $ pm25tmean2: num  NA NA NA NA NA NA NA NA NA NA ...
+ $ pm10tmean2: num  34 NA 34.2 47 NA ...
+ $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
+ $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
+
+      
+    
 
 
 
