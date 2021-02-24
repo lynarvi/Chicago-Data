@@ -265,8 +265,18 @@ For example, with `PM25`, we want to create a `pm25detrend` variable that subtra
 ### transmute()
 There is also the related `transmute()` function, which does the same thingas `mutate()` but then drops all non-transformed variables.
 
-Here we detrend pm10 and ozone (03)
-    
+Here we detrend pm10 and ozone (03) variables.
+
+    head(transmute(chicago, pm10detrend = pm10tmean2 - mean(pm10tmean2, na.rm =TRUE), o3detrend = o3tmean2 - mean(o3tmean2, na.rm = TRUE)))
+
+      pm10detrend o3detrend
+    1   0.1047939 -15.18551
+    2          NA -16.13117
+    3   0.2714605 -16.10218
+    4  13.1047939 -15.06051
+    5          NA -14.68551
+    6  14.1047939 -13.60218
+
     
     
     
