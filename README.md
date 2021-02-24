@@ -18,8 +18,50 @@ We can access the file through this link. Note that the data file is a `zip` fil
 (http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip)
 
 ### Downloading and Unzipping the file directly from the web to R console
-      download.file("http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip",destfile="chicago.zip")
+To download the file directly in R console use the codes below.
+
+    download.file("http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip",destfile="chicago.zip")
 
 After downloading the zip file we must unzip it. In unzipping a file you must open a connection to the zip archive and the file inside it using the function `unz()`
 
     con = unz("chicago.zip", filename = "chicago.rds")
+ 
+ Apply `gzip` decompression to the connection using `gzcon()` function. This function provides a modified connection that wraps an existing connection and decompresses reads or compressess writes through that connection.
+ 
+    con2 = gzcon(con)
+ 
+To read the connection we must use the `readRDS()` function. We will store the data inside the variable **chicago**
+
+    chicago = readRDS(con2)
+    
+Then we must close the connection.
+
+    close(con2)
+
+Try to check if the data is stored in the variable `chicago`
+
+    head(chicago)
+    
+ <div align="left">
+    <img width="1024" height="690"
+         src="">
+<div/>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
