@@ -47,7 +47,7 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
     [1] 6940    8
     
 
-     ```
+    
     str(chicago)
     'data.frame':   6940 obs. of  8 variables:
     $ city      : chr  "chic" "chic" "chic" "chic" ...
@@ -58,19 +58,30 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
     $ pm10tmean2: num  34 NA 34.2 47 NA ...
      $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
      $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
-     ```
+    
     
 
 Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We
 could for example use numerical indices. But we can also use the names directly.
 
     name(chicago)[1:3]
+    [1] "city" "tmpd" "dptp"
     
+    
+    subset = select(chicago, city:dptp)
+    head(subset)
+      city tmpd   dptp
+    1 chic 31.5 31.500
+    2 chic 33.0 29.875
+    3 chic 33.0 27.375
+    4 chic 29.0 28.625
+    5 chic 32.0 28.875
+    6 chic 40.0 35.125
+   
+Note: We used `head()` function to select only the first 6 rows in the dataframe.
 
-![dim output](put url here)
-    
-    
-    
+
+
     
     
     
