@@ -79,6 +79,9 @@ B. Suppose we wanted to take the first 3 columns only. There are a few ways to d
    
 Note: We used `head()` function to select only the first 6 rows in the dataframe. It also applies with the `tail()` function.
 
+
+### select()
+
 C. You can also omit variables using the `select()` function by using the negative sign. In this case we want to omit the variables **city** upto **dptp**.
 
     subset_omit = select(chicago, -(city:dptp))
@@ -93,17 +96,20 @@ C. You can also omit variables using the `select()` function by using the negati
 
 D. The `select()` function also allows special syntax that allows you to specify variable names based on patterns. 
 
-- for example you want to keep every variable that **ends with a "2"**. we could do;
+For example we want to:
 
-    subset = select(chicago, ends_with("2"))
-    head(subset)
-     'data.frame':   6940 obs. of  4 variables:
- $ pm25tmean2: num  NA NA NA NA NA NA NA NA NA NA ...
- $ pm10tmean2: num  34 NA 34.2 47 NA ...
- $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
- $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
+- Keep every variable that **ends with a "2"**. We could do;
 
-      
+        subset = select(chicago, ends_with("2"))
+        head(subset)
+        'data.frame':   6940 obs. of  4 variables:
+         $ pm25tmean2: num  NA NA NA NA NA NA NA NA NA NA ...
+         $ pm10tmean2: num  34 NA 34.2 47 NA ...
+         $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
+        $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
+
+- Keep every variable that **ends with a "2"**. We could do;
+     
     
 
 
