@@ -11,4 +11,8 @@ Daily air pollution and temperature data for Chicago
 After installing the **dplyr** package, you must call its library.
 
     library("dplyr")
+    
+## Accessing the Chicago File
+We can access the file through this link
 
+(http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip)
