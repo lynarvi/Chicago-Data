@@ -47,7 +47,7 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
     [1] 6940    8
     
 
-
+     ```
     str(chicago)
     'data.frame':   6940 obs. of  8 variables:
     $ city      : chr  "chic" "chic" "chic" "chic" ...
@@ -58,7 +58,7 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
     $ pm10tmean2: num  34 NA 34.2 47 NA ...
      $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
      $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
-
+     ```
     
 
 Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We
