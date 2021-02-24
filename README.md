@@ -41,7 +41,7 @@ Then we must close the connection.
 ## Manipulating the Chicago Dataset  
     
 
-A. To view the basic characteristics of the dataset we can use `dim()` and `str()` functions.
+To view the basic characteristics of the dataset we can use `dim()` and `str()` functions.
 
     dim(chicago)
     [1] 6940    8
@@ -61,7 +61,7 @@ A. To view the basic characteristics of the dataset we can use `dim()` and `str(
     
     
 
-B. Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We could for example use numerical indices. But we can also use the names directly.
+Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We could for example use numerical indices. But we can also use the names directly.
 
     name(chicago)[1:3]
     [1] "city" "tmpd" "dptp"
@@ -82,7 +82,7 @@ Note: We used `head()` function to select only the first 6 rows in the dataframe
 
 ### select()
 
-C. You can also omit variables using the `select()` function by using the negative sign. In this case we want to omit the variables **city** upto **dptp**.
+You can also omit variables using the `select()` function by using the negative sign. In this case we want to omit the variables **city** upto **dptp**.
 
     subset_omit = select(chicago, -(city:dptp))
     head(subset_omit)
@@ -94,7 +94,7 @@ C. You can also omit variables using the `select()` function by using the negati
         5 1987-01-05         NA         NA 4.750000  30.33333
         6 1987-01-06         NA   48.00000 5.833333  25.77233
 
-D. The `select()` function also allows special syntax that allows you to specify variable names based on patterns. 
+The `select()` function also allows special syntax that allows you to specify variable names based on patterns. 
 
 For example we want to:
 
@@ -120,22 +120,29 @@ For example we want to:
 The `filter()` function is used to extract subsets of rows from the data frame. This
 function is similar to the existing `subset()` function R but is quite a bit faster in past experiences.
 
-Suppose we want to extract the rows of Chicago data where the levels of pm25tmean2 are greater than 30.
+Suppose we want to extract the rows of Chicago data where the levels of **pm25tmean2 are greater than 30**.
 
-    levels = filter(chicago, pm25tmean2 > 30)
-    str(levels)
-    'data.frame':   194 obs. of  8 variables:
-     $ city      : chr  "chic" "chic" "chic" "chic" ...
-    $ tmpd      : num  23 28 55 59 57 57 75 61 73 78 ...
-     $ dptp      : num  21.9 25.8 51.3 53.7 52 56 65.8 59 60.3 67.1 ...
-     $ date      : Date, format: "1998-01-17" "1998-01-23" ...
-     $ pm25tmean2: num  38.1 34 39.4 35.4 33.3 ...
-     $ pm10tmean2: num  32.5 38.7 34 28.5 35 ...
-     $ o3tmean2  : num  3.18 1.75 10.79 14.3 20.66 ...
-     $ no2tmean2 : num  25.3 29.4 25.3 31.4 26.8 ...
+         levels = filter(chicago, pm25tmean2 > 30)
+         str(levels)
+         'data.frame':   194 obs. of  8 variables:
+         $ city      : chr  "chic" "chic" "chic" "chic" ...
+         $ tmpd      : num  23 28 55 59 57 57 75 61 73 78 ...
+         $ dptp      : num  21.9 25.8 51.3 53.7 52 56 65.8 59 60.3 67.1 ...
+         $ date      : Date, format: "1998-01-17" "1998-01-23" ...
+         $ pm25tmean2: num  38.1 34 39.4 35.4 33.3 ...
+         $ pm10tmean2: num  32.5 38.7 34 28.5 35 ...
+         $ o3tmean2  : num  3.18 1.75 10.79 14.3 20.66 ...
+         $ no2tmean2 : num  25.3 29.4 25.3 31.4 26.8 ...
 
 ## summary()
-    
+`summary()` function is a generic function used to produce result summaries of the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument. 
+
+In this case, we want to find the summary of the **pm25tmean2** in chicago data.
+
+    summary(chicago$pm25tmean2)
+    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    1.70    9.70   14.66   16.23   20.60   61.50    4447 
+
     
     
     
