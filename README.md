@@ -176,7 +176,7 @@ of the variables/columns. Reordering rows of a data frame (while preserving
 corresponding order of other columns) is normally a pain to do in R. The `arrange()`
 function simplifies the process quite a bit.
 
-Columns can be arranged in descending order too by using the special desc() operator.
+Columns can be arranged in descending order too by using the special `desc()` operator.
 
     data.arrange = arrange(chicago, desc(date))
     head(data.arrange)
@@ -188,6 +188,36 @@ Columns can be arranged in descending order too by using the special desc() oper
     4 chic   37 34.5 2005-12-28   17.75000       27.5  3.260417  19.28563
     5 chic   40 33.6 2005-12-27   23.56000       27.0  4.468750  23.50000
     6 chic   35 29.6 2005-12-26    8.40000        8.5 14.041667  16.81944
+
+    tail(data.arrange)
+    
+         city tmpd   dptp       date pm25tmean2 pm10tmean2 o3tmean2 no2tmean2
+    6935 chic 40.0 35.125 1987-01-06         NA   48.00000 5.833333  25.77233
+    6936 chic 32.0 28.875 1987-01-05         NA         NA 4.750000  30.33333
+    6937 chic 29.0 28.625 1987-01-04         NA   47.00000 4.375000  30.43452
+    6938 chic 33.0 27.375 1987-01-03         NA   34.16667 3.333333  23.81548
+    6939 chic 33.0 29.875 1987-01-02         NA         NA 3.304348  23.19099
+    6940 chic 31.5 31.500 1987-01-01         NA   34.00000 4.250000  19.98810
+    
+ 
+ ### rename()
+ The `rename()` function is designed to make renaming variables easier.
+ 
+ Suppose we want to change the **dptp** column to represent the **dew point temperature** and the **pm25tmean2** column provides the **PM25** data.
+ 
+    ChicagoNew = rename(chicago, "dew point temperature" = dptp, "PM25" = pm25tmean2)
+    head(ChicagoNew)
+    
+      city tmpd dew point temperature       date PM25 pm10tmean2 o3tmean2 no2tmean2
+    1 chic 31.5                31.500 1987-01-01   NA   34.00000 4.250000  19.98810
+    2 chic 33.0                29.875 1987-01-02   NA         NA 3.304348  23.19099
+    3 chic 33.0                27.375 1987-01-03   NA   34.16667 3.333333  23.81548
+    4 chic 29.0                28.625 1987-01-04   NA   47.00000 4.375000  30.43452
+    5 chic 32.0                28.875 1987-01-05   NA         NA 4.750000  30.33333
+    6 chic 40.0                35.125 1987-01-06   NA   48.00000 5.833333  25.77233
+ 
+ The syntax inside the `rename()` function is to have the new name on the left-hand
+side of the = sign and the old name on the right-hand side.
 
     
     
