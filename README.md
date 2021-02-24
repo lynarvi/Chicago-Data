@@ -142,7 +142,7 @@ function is similar to the existing `subset()` function R but is quite a bit fas
          $ o3tmean2  : num  3.18 1.75 10.79 14.3 20.66 ...
          $ no2tmean2 : num  25.3 29.4 25.3 31.4 26.8 ...
 
-- We also want to extract the rows where **pm25tmean2 is greater than 30 and temperature is greater than 80 degrees Fahrenheit**.
+- We can place an arbitrary complex logical sequence inside of ``filter ()``, so we could for example extract the rows where **pm25tmean2 is greater than 30 and temperature is greater than 80 degrees Fahrenheit**.
 
         data.filter = filter(chicago, pm25tmean2 > 30 & tmpd > 80)
         str(data.filter)
@@ -169,6 +169,25 @@ In this case, we want to find the summary of the **pm25tmean2** in chicago data.
     Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
     1.70    9.70   14.66   16.23   20.60   61.50    4447 
    
+
+## arrange()
+The `arrange()` function is used to reorder rows of a data frame according to one
+of the variables/columns. Reordering rows of a data frame (while preserving
+corresponding order of other columns) is normally a pain to do in R. The `arrange()`
+function simplifies the process quite a bit.
+
+Columns can be arranged in descending order too by using the special desc() operator.
+
+    data.arrange = arrange(chicago, desc(date))
+    head(data.arrange)
+    
+        city tmpd dptp       date pm25tmean2 pm10tmean2  o3tmean2 no2tmean2
+    1 chic   35 30.1 2005-12-31   15.00000       23.5  2.531250  13.25000
+    2 chic   36 31.0 2005-12-30   15.05714       19.2  3.034420  22.80556
+    3 chic   35 29.4 2005-12-29    7.45000       23.5  6.794837  19.97222
+    4 chic   37 34.5 2005-12-28   17.75000       27.5  3.260417  19.28563
+    5 chic   40 33.6 2005-12-27   23.56000       27.0  4.468750  23.50000
+    6 chic   35 29.6 2005-12-26    8.40000        8.5 14.041667  16.81944
 
     
     
