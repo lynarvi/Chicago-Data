@@ -6,4 +6,9 @@ Daily air pollution and temperature data for Chicago
 ## Packages Installed
 **dplyr** is a grammar of data manipulation providing a consistent set of verbs that help you solve the most common data manipulation challenges. These are combined naturally with `group_by()` which allows you to perform any operation "by group".
 
+    install.packages("dplyr")
+
+After installing the **dplyr** package, you must call its library.
+
+    library("dplyr")
 
