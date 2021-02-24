@@ -262,7 +262,8 @@ For example, with `PM25`, we want to create a `pm25detrend` variable that subtra
     6939  22.80556   -1.173815
     6940  13.25000   -1.230958
 
-    
+### transmute()
+There is also the related `transmute()` function, which does the same thingas `mutate()` but then drops all non-transformed variables.
     
     
     
