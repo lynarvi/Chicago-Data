@@ -15,7 +15,7 @@ After installing the **dplyr** package, you must call its library.
 ## Accessing the Chicago File
 We can access the file through this link. Note that the data file is a `zip` file.
 
-(http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip)
+http://www.biostat.jhsph.edu/~rpeng/leanpub/rprog/chicago_data.zip
 
 ### Downloading and Unzipping the file directly from the web to R console
 To download the file directly in R console use the codes below.
