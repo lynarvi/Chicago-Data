@@ -277,7 +277,7 @@ Here we detrend pm10 and ozone (03) variables.
     5          NA -14.68551
     6  14.1047939 -13.60218
 
-### groupby()
+### group_by()
 The `group_by()` function is used to generate summary statistics from the data
 frame within strata defined by a variable. For example, in this chicago data, you might want to get the average annual level of pm25tmean2, o3tmean2 and no2tmean where stratum is the year (from 1987 to 2005).
 
