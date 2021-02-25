@@ -280,10 +280,58 @@ Here we detrend pm10 and ozone (03) variables.
 ### groupby()
 The `group_by()` function is used to generate summary statistics from the data
 frame within strata defined by a variable. For example, in this chicago data, you might want to get the average annual level of pm25tmean2, o3tmean2 and no2tmean where stratum is the year (from 1987 to 2005).
+
+**Note:** We can create a **year** variable using `as.POSIXlt()` function.
+
+    chicago_new = mutate(chicago, year = as.POSIXlt(date)$year + 1900)
+    head(chicago_new) 
     
+      city tmpd   dptp       date pm25tmean2 pm10tmean2 o3tmean2 no2tmean2 year
+    1 chic 31.5 31.500 1987-01-01         NA   34.00000 4.250000  19.98810 1987
+    2 chic 33.0 29.875 1987-01-02         NA         NA 3.304348  23.19099 1987
+    3 chic 33.0 27.375 1987-01-03         NA   34.16667 3.333333  23.81548 1987
+    4 chic 29.0 28.625 1987-01-04         NA   47.00000 4.375000  30.43452 1987
+    5 chic 32.0 28.875 1987-01-05         NA         NA 4.750000  30.33333 1987
+    6 chic 40.0 35.125 1987-01-06         NA   48.00000 5.833333  25.77233 1987
     
+    years = group_by(chicago_new,year)
+    head(years)
     
+    # A tibble: 6 x 9
+    # Groups:   year [1]
+      city   tmpd  dptp date       pm25tmean2 pm10tmean2 o3tmean2 no2tmean2  year
+     <chr> <dbl> <dbl> <date>          <dbl>      <dbl>    <dbl>     <dbl> <dbl>
+    1 chic   31.5  31.5 1987-01-01         NA       34       4.25      20.0  1987
+    2 chic   33    29.9 1987-01-02         NA       NA       3.30      23.2  1987
+    3 chic   33    27.4 1987-01-03         NA       34.2     3.33      23.8  1987
+    4 chic   29    28.6 1987-01-04         NA       47       4.38      30.4  1987
+    5 chic   32    28.9 1987-01-05         NA       NA       4.75      30.3  1987
+    6 chic   40    35.1 1987-01-06         NA       48       5.83      25.8  1987
     
+    summarize(years, PM25 = mean(pm25tmean2, na.rm = TRUE), o3 = max(o3tmean2, na.rm = TRUE), no2 = median(no2tmean2, na.rm = TRUE))
+    
+    # A tibble: 19 x 4
+        year  PM25    o3   no2
+     * <dbl> <dbl> <dbl> <dbl>
+     1  1987 NaN    63.0  23.5
+     2  1988 NaN    61.7  24.5
+     3  1989 NaN    59.7  26.1
+     4  1990 NaN    52.2  22.6
+     5  1991 NaN    63.1  21.4
+     6  1992 NaN    50.8  24.8
+     7  1993 NaN    44.3  25.8
+     8  1994 NaN    52.2  28.5
+     9  1995 NaN    66.6  27.3
+    10  1996 NaN    58.4  26.4
+    11  1997 NaN    56.5  25.5
+    12  1998  18.3  50.7  24.6
+    13  1999  18.5  57.5  24.7
+    14  2000  16.9  55.8  23.5
+    15  2001  16.9  51.8  25.1
+    16  2002  15.3  54.9  22.7
+    17  2003  15.2  56.2  24.6
+    18  2004  14.6  44.5  23.4
+    19  2005  16.2  58.8  22.6
     
     
     
