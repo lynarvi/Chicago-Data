@@ -40,7 +40,7 @@ Then we must close the connection.
     
 ## Manipulating the Chicago Dataset  
     
-
+### dim() and str()
 To view the basic characteristics of the dataset we can use `dim()` and `str()` functions.
 
     dim(chicago)
