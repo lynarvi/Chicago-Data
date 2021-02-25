@@ -81,7 +81,7 @@ Suppose we wanted to take the first 3 columns only. There are a few ways to do t
     5 chic 32.0 28.875
     6 chic 40.0 35.125
    
-Note: We used `head()` function to select only the first 6 rows in the dataframe. It also applies with the `tail()` function.
+Note: We used `head()` function to select only the first 6 rows in the dataframe. It also applies with the `tail()` function where it selects 6 last rows of the dataframe.
 
 
 ### select()
