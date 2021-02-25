@@ -1,4 +1,4 @@
-###### Arvilyn M. Mellizas
+
 
 
 # Chicago Dataset: Basic Data Frame Manipulation Using "dplyr" Package 
