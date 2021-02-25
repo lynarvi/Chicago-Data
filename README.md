@@ -1,5 +1,7 @@
 # Chicago Dataset: Basic Data Frame Manipulation Using "dplyr" Package 
 
+#### Author: Arvilyn M. Mellizas
+
 ## Description
 Daily air pollution and temperature data for Chicago
 
