@@ -337,8 +337,73 @@ In concurrence with the `group_by()` function, we often use the `summarize()` fu
     18  2004  14.6  44.5  23.4
     19  2005  16.2  58.8  22.6
     
+ Suppose we want to compute the mean of o3 and no2 within quintiles of PM25. We have to;
+ 
+ a. Create a new variable `pm25.quint`
+ 
+    qq <- quantile(ChicagoNew$PM25, seq(0, 1, 0.2), na.rm = TRUE)
+    chicago.new = mutate(ChicagoNew, PM25.quint = cut(PM25,qq))
+    head(chicago.new)
+    
+      city tmpd dew point temperature       date PM25 pm10tmean2 o3tmean2 no2tmean2
+    1 chic 31.5                31.500 1987-01-01   NA   34.00000 4.250000  19.98810
+    2 chic 33.0                29.875 1987-01-02   NA         NA 3.304348  23.19099
+    3 chic 33.0                27.375 1987-01-03   NA   34.16667 3.333333  23.81548
+    4 chic 29.0                28.625 1987-01-04   NA   47.00000 4.375000  30.43452
+    5 chic 32.0                28.875 1987-01-05   NA         NA 4.750000  30.33333
+    6 chic 40.0                35.125 1987-01-06   NA   48.00000 5.833333  25.77233
+      PM25.quint
+    1       <NA>
+    2       <NA>
+    3       <NA>
+    4       <NA>
+    5       <NA>
+    6       <NA>
+  
+b. Split the data frame by that new variable.
+
+    GroupByPM25 = group_by(chicago.new,PM25.quint)
+    GroupByPM25
+    
+    # A tibble: 6,940 x 9
+    # Groups:   PM25.quint [6]
+     city   tmpd `dew point temp~ date        PM25 pm10tmean2 o3tmean2 no2tmean2
+     <chr> <dbl>            <dbl> <date>     <dbl>      <dbl>    <dbl>     <dbl>
+    1 chic   31.5             31.5 1987-01-01    NA       34       4.25      20.0
+    2 chic   33               29.9 1987-01-02    NA       NA       3.30      23.2
+    3 chic   33               27.4 1987-01-03    NA       34.2     3.33      23.8
+    4 chic   29               28.6 1987-01-04    NA       47       4.38      30.4
+    5 chic   32               28.9 1987-01-05    NA       NA       4.75      30.3
+    6 chic   40               35.1 1987-01-06    NA       48       5.83      25.8
+    7 chic   34.5             26.8 1987-01-07    NA       41       9.29      20.6
+    8 chic   29               22   1987-01-08    NA       36      11.3       17.0
+    9 chic   26.5             29   1987-01-09    NA       33.3     4.5       23.4
+    10 chic   32.5             27.8 1987-01-10    NA       NA       4.96      19.5
+    # ... with 6,930 more rows, and 1 more variable: PM25.quint <fct>
+
+c. Compute the mean of o3 and no2 in the sub-groups defined by pm25.quint.
+
+    summarize(GroupByPM25, mean(o3tmean2, na.rm = TRUE),mean(no2tmean2, na.rm = TRUE))
+    
+    # A tibble: 6 x 3
+       PM25.quint  `mean(o3tmean2, na.rm = TRUE)` `mean(no2tmean2, na.rm = TRUE)`
+    * <fct>                                <dbl>                           <dbl>
+    1 (1.7,8.7]                             21.7                            18.0
+    2 (8.7,12.4]                            20.4                            22.1
+    3 (12.4,16.7]                           20.7                            24.4
+    4 (16.7,22.6]                           19.9                            27.3
+    5 (22.6,61.5]                           20.3                            29.6
+    6 <NA>                                  18.8                            25.8
+
+
     
     
     
+    
+    
+    
+    
+
+
     
     
