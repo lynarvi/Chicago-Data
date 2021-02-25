@@ -293,7 +293,9 @@ frame within strata defined by a variable. For example, in this chicago data, yo
     4 chic 29.0 28.625 1987-01-04         NA   47.00000 4.375000  30.43452 1987
     5 chic 32.0 28.875 1987-01-05         NA         NA 4.750000  30.33333 1987
     6 chic 40.0 35.125 1987-01-06         NA   48.00000 5.833333  25.77233 1987
-    
+   
+So the stratum is the `year` and that is something we can derive from the date variable.
+
     years = group_by(chicago_new,year)
     head(years)
     
@@ -307,6 +309,8 @@ frame within strata defined by a variable. For example, in this chicago data, yo
     4 chic   29    28.6 1987-01-04         NA       47       4.38      30.4  1987
     5 chic   32    28.9 1987-01-05         NA       NA       4.75      30.3  1987
     6 chic   40    35.1 1987-01-06         NA       48       5.83      25.8  1987
+    
+In concurrence with the `group_by()` function, we often use the `summarize()` function. Likewise, the general operation here is combination of splitting a data frame into separate pieces defined by a variable or group of variables (`group_by()`), and then applying summary functions across those subsets(`summarize()`)
     
     summarize(years, PM25 = mean(pm25tmean2, na.rm = TRUE), o3 = max(o3tmean2, na.rm = TRUE), no2 = median(no2tmean2, na.rm = TRUE))
     
