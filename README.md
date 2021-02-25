@@ -65,7 +65,7 @@ To view the basic characteristics of the dataset we can use `dim()` and `str()` 
 
 Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We could for example use numerical indices. But we can also use the names directly.
 
-    name(chicago)[1:3]
+    names(chicago)[1:3]
     
     [1] "city" "tmpd" "dptp"
     
