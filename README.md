@@ -315,30 +315,31 @@ So the stratum is the `year` and that is something we can derive from the date v
     
 In concurrence with the `group_by()` function, we often use the `summarize()` function. Likewise, the general operation here is combination of splitting a data frame into separate pieces defined by a variable or group of variables (`group_by()`), and then applying summary functions across those subsets(`summarize()`)
     
-    summarize(years, PM25 = mean(pm25tmean2, na.rm = TRUE), o3 = max(o3tmean2, na.rm = TRUE), no2 = median(no2tmean2, na.rm = TRUE))
+    summarize(years, PM25 = mean(pm25tmean2, na.rm = TRUE), o3 = mean(o3tmean2, na.rm = TRUE), no2 = mean(no2tmean2, na.rm = TRUE))
     
-    # A tibble: 19 x 4
-        year  PM25    o3   no2
-     * <dbl> <dbl> <dbl> <dbl>
-     1  1987 NaN    63.0  23.5
-     2  1988 NaN    61.7  24.5
-     3  1989 NaN    59.7  26.1
-     4  1990 NaN    52.2  22.6
-     5  1991 NaN    63.1  21.4
-     6  1992 NaN    50.8  24.8
-     7  1993 NaN    44.3  25.8
-     8  1994 NaN    52.2  28.5
-     9  1995 NaN    66.6  27.3
-    10  1996 NaN    58.4  26.4
-    11  1997 NaN    56.5  25.5
-    12  1998  18.3  50.7  24.6
-    13  1999  18.5  57.5  24.7
-    14  2000  16.9  55.8  23.5
-    15  2001  16.9  51.8  25.1
-    16  2002  15.3  54.9  22.7
-    17  2003  15.2  56.2  24.6
-    18  2004  14.6  44.5  23.4
-    19  2005  16.2  58.8  22.6
+     # A tibble: 19 x 4
+           year  PM25    o3   no2
+         * <dbl> <dbl> <dbl> <dbl>
+        1  1987 NaN    20.5  25.3
+        2  1988 NaN    22.2  25.3
+        3  1989 NaN    20.8  27.4
+        4  1990 NaN    19.7  23.1
+        5  1991 NaN    20.0  21.9
+        6  1992 NaN    16.1  25.9
+        7  1993 NaN    15.8  26.1
+        8  1994 NaN    17.3  29.1
+        9  1995 NaN    18.1  27.9
+        10  1996 NaN    16.7  27.0
+        11  1997 NaN    18.6  25.8
+        12  1998  18.3  19.3  24.7
+        13  1999  18.5  20.5  24.9
+        14  2000  16.9  18.5  24.1
+        15  2001  16.9  19.4  25.4
+        16  2002  15.3  21.0  23.7
+        17  2003  15.2  21.0  25.2
+        18  2004  14.6  20.5  23.4
+        19  2005  16.2  23.2  23.2
+
     
  Suppose we want to compute the mean of o3 and no2 within quintiles of PM25. We have to;
  
