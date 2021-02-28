@@ -117,7 +117,7 @@ For example we want to:
          $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
         $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...
 
-- Keep every variable that **ends with a "d"**. We could do;
+- Keep every variable that **starts with a "d"**. We could do;
      
         subset = select(chicago, starts_with("d"))
         str(subset)
